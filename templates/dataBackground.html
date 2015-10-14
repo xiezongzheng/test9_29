@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css"/>
+{#    <link rel="stylesheet" type="text/css" href="../static/css/demo.css" />#}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+{#    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.7.1/jquery.min.js"></script>#}
+{#    <link type="text/css" rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css"/>#}
+{#<script type="text/javascript" src="../static/js/jqPaginator.js"></script>#}
+    <script type="text/javascript">
+    $(document).ready(function(){
+{#        alert("载入函数")#}
+{#        alert("zairuhanshu")#}
+         $.ajax({
+                    type:"GET",
+                    url: '/functionTab/',
+                    cache: false,
+                    success: function(result){
+                         $('#functionTab').html(result);
+                    },
+             });
+{#        $('#chaxunbutton').click(function(){#}
+{#            alert("进入点击")#}
+{#             $.ajax({#}
+{#                    type:"GET",#}
+{#                    data: {'name':'xiezongzheng','id':'11'},#}
+{#                    url: '/dataShow/', //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致#}
+{#                    cache: false,#}
+{#                    dataType: "html",#}
+{#                    success: function(result){#}
+{#                        alert("首页回调函数运行");#}
+{#                        alert(result);                                         //成功时弹出view传回来的结果#}
+{#                        $('#jibenshuju').html(result);#}
+{#                        altRows('alternatecolor');//执行数据表格渲染#}
+{#                    },#}
+{#             });#}
+{#             $.ajax({#}
+{#                    type:"GET",#}
+{#                    data: {'name':'xiezongzheng','id':'11'},#}
+{#                    url: '/jqPaginator/', //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致#}
+{#                    cache: false,#}
+{#                    dataType: "html",#}
+{#                    success: function(result){#}
+{#                        $('#fenye').html(result);#}
+{#                    },#}
+{#             });#}
+{##}
+{##}
+{##}
+{#             $.ajax({#}
+{#                    type:"GET",#}
+{#                    data: {'name':'xiezongzheng','id':'11'},#}
+{#                    url: '/searchTool/', //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致#}
+{#                    cache: false,#}
+{#                    dataType: "html",#}
+{#                    success: function(result){#}
+{#                        $('#sousuokuang1').html(result);#}
+{#                    },#}
+{#             });#}
+{##}
+{##}
+{#             $.ajax({#}
+{#                    type:"GET",#}
+{#                    data: {'name':'xiezongzheng','id':'11'},#}
+{#                    url: '/searchTool2/', //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致#}
+{#                    cache: false,#}
+{#                    dataType: "html",#}
+{#                    success: function(result){#}
+{#                        $('#sousuokuang2').html(result);#}
+{#                    },#}
+{#             });#}
+{##}
+{##}
+{#        });#}
+    })
+
+    </script>
+</head>
+
+<body>
+{#<div id="background" style="background-color: darkgrey;">#}
+    <div id="functionTab" style="width: 100%;"></div>
+{#<input id="chaxunbutton" type="button" value="查询数据功能">#}
+    <div style="clear: both"></div>
+    <div id="sousuokuang" style="width:100%;background-color:chartreuse">
+        <div id="sousuokuang1" style="margin:0 0 0 75px;float: left"></div>
+        <div id="sousuokuang2" style="margin:0 0 0 3px;float: left"></div>
+    </div>
+    <div style="clear: both"></div>
+    <div id="shuju" style="width: 100%;background-color:#7cbcd6" id="shuju">
+        <div id="shuju1" style="margin:0 0 0 75px;width: 50%;float: left">
+            <div style="width: 100%;" id="jibenshuju"></div>
+            <div style="width: 100%;" id="fenye"></div>
+        </div>
+        <div style="margin:0 0 0 5%;width: 400px;float: left;" id="xiangxishuju"></div>
+    </div>
+{#</div>#}
+
+</body>
+</html>

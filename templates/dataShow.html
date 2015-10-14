@@ -1,0 +1,101 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#</head>#}
+{#<body>#}
+<!-- Javascript goes in the document HEAD -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+function altRows(id){
+	if(document.getElementsByTagName){
+
+		var table = document.getElementById(id);
+		var rows = table.getElementsByTagName("tr");
+
+		for(i = 0; i < rows.length; i++){
+			if(i % 2 == 0){
+				rows[i].className = "evenrowcolor";
+			}else{
+				rows[i].className = "oddrowcolor";
+			}
+		}
+	}
+}
+
+
+window.onload=function(){
+	altRows('alternatecolor');
+}
+</script>
+
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.altrowstable {
+	font-family: verdana,arial,sans-serif;
+    font-family: verdana,arial;
+	font-size:11px;
+	color:#333333;
+{#    color:red;#}
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+}
+table.altrowstable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.altrowstable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+.oddrowcolor{
+	background-color:#d4e3e5;
+}
+.evenrowcolor{
+	background-color:#c3dde0;
+}
+</style>
+
+<table class="altrowstable" id="alternatecolor">
+<tr>
+{#	<th>NUM</th><th>GENUS</th><th>SPECIES</th><th>SUBSPECIES</th><th>REFERENCE</th><th>STATUS</th><th>AUTHORS</th><th>REMARKS</th><th>RISK_GRP</th><th>TYPE_STRAINS</th><th>taxonId</th><th>ncbiTaxonId</th><th>mclId</th><th>SEQUENCE</th>#}
+    <th>GENUS</th><th>SPECIES</th><th>SUBSPECIES</th><th>TYPE_STRAINS</th>
+</tr>
+    {% for item in Bactname %}
+        <tr  onclick="detailedQuery(this.id)" id="{{ item.id }}">
+{#            <td>{{ item.num }}</td><td>{{ item.genus }}</td><td>{{ item.species }}</td><td>{{ item.subspecies }}</td><td>{{ item.reference }}</td><td>{{ item.status }}</td><td>{{ item.authors }}</td><td>{{ item.remarks }}</td><td>{{ item.risk_grp }}</td><td>{{ item.type_strains }}</td><td>{{ item.taxonid }}</td><td>{{ item.ncbitaxonid }}</td><td>{{ item.mclid }}</td><td>{{ item.sequence }}</td>#}
+            <td>{{ item.genus }}</td><td>{{ item.species }}</td><td>{{ item.subspecies }}</td><td>{{ item.type_strains }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+<script type="text/javascript">
+function detailedQuery(id)
+{
+{#    alert("获得焦点");#}
+    $.ajax({
+        type:"GET",
+      data: {'id':id},
+        url: '/detailedQuery/',
+        cache: false,
+{#      dataType: "html",#}
+        success: function(result){
+{#            alert("详细回调函数运行")#}
+{#            alert(result)#}
+            $('#xiangxishuju').html(result);
+{#            alert("");#}
+{#            $('#search').val(null)#}
+        },
+    });
+{#document.getElementById(x).style.background="yellow"#}
+}
+</script>
+
+{#</body>#}
+{#</html>#}

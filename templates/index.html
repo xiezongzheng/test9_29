@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../static/css/demo.css" />
+</head>
+<body>
+<h1>welcome {{ username }}</h1>
+<input type="text" placeholder="输入 回车搜索" autofocus x-webkit-speech>
+
+<form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <select id="select" name="sel">
+        <option name="select1" value="chaxun">查询</option>
+        <option name="select2" value="lingyige">另一个</option>
+    </select>
+    <input type="submit" value="ok">
+</form>
+</body>
+</html>

@@ -1,0 +1,1 @@
+python2.7 + Django1.7 + MySQL_python1.2.3 +MySQL5.6 

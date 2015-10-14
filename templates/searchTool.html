@@ -1,0 +1,59 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title></title>#}
+{##}
+{#</head>#}
+{#<body>#}
+<input id="search" type="text" style="width: 350px"  placeholder="GENUS、SPECIES、SUBSPECIES(回车搜索)" autofocus x-webkit-speech onkeydown="huiche()">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    function huiche()
+    {
+	    if (event.keyCode == 13)
+	    {
+{#            alert("捕捉住第一个回车提交事件!");#}
+            var searchText = $('#search').val()
+{#            alert(searchText);#}
+
+
+             $.ajax({
+                    type:"GET",
+                    data: {'searchText':searchText,'id':'1'},
+                    url: '/searchToolQuerydata/', //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致
+                    cache: false,
+{#                    dataType: "html",#}
+                    success: function(result){
+{#                        alert("1回调函数运行");#}
+{#                        alert(result);#}
+{#                        alert(result);                                         //成功时弹出view传回来的结果#}
+{#                        $('#jibenshuju').html(result);#}
+{#                        altRows('alternatecolor');//执行数据表格渲染#}
+
+
+                         $.ajax({
+                            type:"GET",
+{#                          data: {'searchText':searchText,'id':'1'},#}
+                            url: '/jqPaginator/',
+                            cache: false,
+{#                          dataType: "html",#}
+                            success: function(result){
+                            $('#fenye').html(result);
+{#                                alert("2回调函数运行");#}
+                                $('#search').val(null)
+                            },
+                         });
+
+
+                    },
+             });
+
+
+
+
+        }
+    }
+</script>
+{#</body>#}
+{#</html>#}

@@ -1,0 +1,59 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title></title>#}
+{##}
+{#</head>#}
+{#<body>#}
+<input id="search2" type="text" style="width: 250px" placeholder="TYPE_STRAINS(回车搜索)" autofocus x-webkit-speech onkeydown="huiche2()">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    function huiche2()
+    {
+	    if (event.keyCode == 13)
+	    {
+{#            alert("捕捉住第二个回车提交事件!");#}
+            var searchText = $('#search2').val()
+{#            alert(searchText);#}
+
+
+             $.ajax({
+                    type:"GET",
+                    data: {'searchText2':searchText,'id':'2'},
+                    url: '/searchToolQuerydata/', //后台处理函数的url 这里用的是static url 需要与urls.py中的name一致
+                    cache: false,
+{#                    dataType: "html",#}
+                    success: function(ret){
+{#                        alert("第二个的1回调函数运行");#}
+{#                        alert(ret);#}
+{#                        alert(result);                                         //成功时弹出view传回来的结果#}
+{#                        $('#jibenshuju').html(result);#}
+{#                        altRows('alternatecolor');//执行数据表格渲染#}
+
+
+                         $.ajax({
+                            type:"GET",
+{#                          data: {'searchText':searchText,'id':'1'},#}
+                            url: '/jqPaginator/',
+                            cache: false,
+{#                          dataType: "html",#}
+                            success: function(result){
+                            $('#fenye').html(result);
+{#                                alert("第二个的2回调函数运行");#}
+                                $('#search2').val(null)
+                            },
+                         });
+
+
+                    },
+             });
+
+
+
+
+        }
+    }
+</script>
+{#</body>#}
+{#</html>#}

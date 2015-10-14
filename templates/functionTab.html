@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+{#		<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#		<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#		<title>超酷tab选项卡</title>#}
+{#		<link rel="stylesheet" type="text/css" href="../static/css/functionTab/normalize.css" />#}
+{#        背景控制#}
+		<link rel="stylesheet" type="text/css" href="../static/css/functionTab/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/functionTab/tabs.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/functionTab/tabstyles.css" />
+{#        点击调用页面#}
+  		<script src="../static/js/functionTab/modernizr.custom.js"></script>
+	</head>
+	<body>
+{#		<svg class="hidden">#}
+{#			<defs>#}
+{#				<path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"/>#}
+{#			</defs>#}
+{#		</svg>#}
+		<div class="container">
+{#			<header class="codrops-header">#}
+{#				<h1>超酷tab选项卡 <span>15中tab选项卡效果</span></h1>#}
+{#				<p class="support">Your browser does not support <strong>flexbox</strong>! <br />Please view this demo with a <strong>modern browser</strong>.</p>#}
+{#			</header>#}
+			<section>
+				<div class="tabs tabs-style-underline">
+					<nav>
+						<ul>
+							<li><a href="#section-underline-1" class="icon icon-home"><span>首页</span></a></li>
+							<li><a href="#section-underline-2" class="icon icon-gift"><span>数据查询</span></a></li>
+							<li><a href="#section-underline-3" class="icon icon-upload"><span>。。。</span></a></li>
+							<li><a href="#section-underline-4" class="icon icon-coffee"><span>。。。</span></a></li>
+							<li><a href="#section-underline-5" class="icon icon-config"><span>。。。</span></a></li>
+						</ul>
+					</nav>
+					<div class="content-wrap">
+                        <section id="section-underline-1"></section>
+						<section id="section-underline-2"></section>
+						<section id="section-underline-3"></section>
+						<section id="section-underline-4"></section>
+						<section id="section-underline-5"></section>
+
+					</div><!-- /content -->
+				</div><!-- /tabs -->
+			</section>
+		</div><!-- /container -->
+		<script src="../static/js/functionTab/cbpFWTabs.js"></script>
+		<script>
+			(function() {
+{#                alert("进入函数");#}
+
+				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+					new CBPFWTabs( el );
+				});
+
+			})();
+
+		</script>
+	</body>
+</html>
