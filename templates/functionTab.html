@@ -30,9 +30,9 @@
 						<ul>
 							<li><a href="#section-underline-1" class="icon icon-home"><span>首页</span></a></li>
 							<li><a href="#section-underline-2" class="icon icon-gift"><span>数据查询</span></a></li>
-							<li><a href="#section-underline-3" class="icon icon-upload"><span>。。。</span></a></li>
-							<li><a href="#section-underline-4" class="icon icon-coffee"><span>。。。</span></a></li>
-							<li><a href="#section-underline-5" class="icon icon-config"><span>。。。</span></a></li>
+							<li><a href="#section-underline-3" class="icon icon-upload"><span>.....</span></a></li>
+							<li><a href="#section-underline-4" class="icon icon-coffee"><span>.....</span></a></li>
+							<li><a href="#section-underline-5" class="icon icon-config"><span>.....</span></a></li>
 						</ul>
 					</nav>
 					<div class="content-wrap">
@@ -52,7 +52,7 @@
 {#                alert("进入函数");#}
 
 				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
-					new CBPFWTabs( el );
+					new CBPFWTabs( el,{start:{{start}}});
 				});
 
 			})();

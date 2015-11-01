@@ -21,7 +21,7 @@
 		return a;
 	}
 
-	function CBPFWTabs( el, options ) {
+	function CBPFWTabs( el, options) {
 		this.el = el;
 		this.options = extend( {}, this.options );
   		extend( this.options, options );
@@ -29,7 +29,7 @@
 	}
 
 	CBPFWTabs.prototype.options = {
-		start : 0
+		start : 3
 	};
 
 	CBPFWTabs.prototype._init = function() {
@@ -56,6 +56,7 @@
 	};
 
 	CBPFWTabs.prototype._show = function( idx ) {
+		//alert("jinruhanshu")
 		if( this.current >= 0 ) {
 			this.tabs[ this.current ].className = this.items[ this.current ].className = '';
 			//alert(idx)

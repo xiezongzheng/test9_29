@@ -74,7 +74,7 @@ def index(request):
 ###########################################网站正式############################
 
 def dataBackground(request):
-    return render_to_response('dataBackground.html')
+    return render_to_response('dataBackground.html',{'tabNum':'0'})#tabNum=0,1,2,3控制初始进入的是哪一栏
 
 def dataShow(request):#初始查询数据并保存到全局变量中
     b = Bactname.objects.all()
@@ -124,14 +124,21 @@ def searchToolQuerydata(request):
 def detailedQuery(request):
     searchId = request.GET.get("id")
     b = Bactname.objects.get(id = searchId)
-    return render_to_response('detailedQuery.html',{'genus':b.genus,'species':b.species,'subspecies':b.subspecies,'reference':b.reference,'status':b.status,'authors':b.authors,'remarks':b.remarks,'risk_grp':b.risk_grp,'type_strains':b.type_strains,'taxonid':b.taxonid,'ncbitaxonid':b.ncbitaxonid,'mclid':b.mclid,'sequence':b.sequence})
+    return render_to_response('detailedQuery.html',{'genus':b.genus,'species':b.species,'subspecies':b.subspecies,'reference':b.reference,'status':b.status,'authors':b.authors,'remarks':b.remarks,'risk_grp':b.risk_grp,'type_strains':b.type_strains,'taxonid':b.taxonid,'ncbitaxonid':b.ncbitaxonid,'mclid':b.mclid,'sequence':b.sequence,'id':b.id})
 
 def functionTab(requset):
-    return render_to_response("functionTab.html")
+    tabNum = requset.GET.get("tabNum")
+    return render_to_response("functionTab.html",{'start':tabNum})
 
 
+def separateQuery(request,dataId):#外链查询
+    b = Bactname.objects.get(id = dataId)
+    return render_to_response('detailedQuery.html',{'genus':b.genus,'species':b.species,'subspecies':b.subspecies,'reference':b.reference,'status':b.status,'authors':b.authors,'remarks':b.remarks,'risk_grp':b.risk_grp,'type_strains':b.type_strains,'taxonid':b.taxonid,'ncbitaxonid':b.ncbitaxonid,'mclid':b.mclid,'sequence':b.sequence,'id':b.id})
 
 ###########################################网站正式############################
+
+def test(request):
+    return render_to_response('dataBackground.html',{'tabNum':'2'})
 
 
 

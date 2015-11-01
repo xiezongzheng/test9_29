@@ -22,9 +22,12 @@ urlpatterns = patterns('',
                        (r'^searchTool2/$',searchTool2),
                        (r'^searchToolQuerydata/$',searchToolQuerydata),
                        (r'^detailedQuery/$',detailedQuery),
+                       (r'^functionTab/$',functionTab),
+                       (r'^dataBackground/dataId=(\d{1,10})/$',separateQuery),
 
                        ######################################################
-                       (r'^functionTab/$',functionTab),
+
+                       (r'^test/$',test),
     url(r'^admin/', include(admin.site.urls)),
 )
 
